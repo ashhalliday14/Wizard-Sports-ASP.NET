@@ -12,5 +12,6 @@ namespace WizardSports.Core.Models
         public string ProductId { get; set; }
         public int Quantity { get; set; }
         public string Name { get; set; }
+        public int StockLevel { get; set; }
     }
 }

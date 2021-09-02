@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to Premium Membership</h2>
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="col-md-4">
+        <h4>Premium Membership Management</h4>
+        <div class="list-group">
+            @Html.ActionLink("Update Special News", "UpdateNews","PremiumMembership", null, new { @class = "list-group-item" })
+            @Html.ActionLink("Update Discounts", "UpdateDiscounts", "PremiumMembership", null, new { @class = "list-group-item" })
+        </div>
+    </div>
+}
+

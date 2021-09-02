@@ -103,6 +103,7 @@ namespace WizardSports.WebUI.Controllers
                 productToEdit.Description = product.Description;
                 productToEdit.Name = product.Name;
                 productToEdit.Price = product.Price;
+                productToEdit.StockLevel = product.StockLevel;
 
                 context.Commit();
 

@@ -3,20 +3,13 @@
     ViewBag.Title = "Customer";
 }
 
-<h2>"Welcome" </h2>
+<h2>Welcome to your Customer Page</h2>
 
 <div class="col-md-4">
-    <h4>Product Management</h4>
+    <h4>View Previous Orders:</h4>
     <div class="list-group">
-        @Html.ActionLink("Product Categories", "Index", "ProductCategoryManager", null, new { @class = "list-group-item" })
-        @Html.ActionLink("Products", "Index", "ProductManager", null, new { @class = "list-group-item" })
-    </div>
-</div>
-
-<div class="col-md-4">
-    <h4>Order Management</h4>
-    <div class="list-group">
-        @Html.ActionLink("Orders", "Index", "OrderManager", null, new { @class = "list-group-item" })
+        <!--link to view customer previous orders-->
+        @Html.ActionLink("My Orders", "MyOrders", "OrderManager", null, new { @class = "list-group-item" })
     </div>
 </div>
 

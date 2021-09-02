@@ -23,12 +23,34 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Customer", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Members Only", "Index", "MembersOnly")</li>
+
+                    <!--check user is logged in-->
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Members Only", "Index", "MembersOnly")</li>
+                    }
+
+                    <!--only accessible to admin users-->
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
                     }
+
+                    <!--accessible to admin and premium members-->
+                    @if (Request.IsAuthenticated && User.IsInRole("Premium"))
+                    {
+                        <li>@Html.ActionLink("Premium Membership", "Index", "PremiumMembership")</li>
+                    }
+                    else if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Premium Membership", "Index", "PremiumMembership")</li>
+                    }
+                    else
+                    {
+                        <!--advert for premium membership-->
+                        <li>@Html.ActionLink("Premium Membership", "Advert", "PremiumMembership")</li>
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
                 @{ 

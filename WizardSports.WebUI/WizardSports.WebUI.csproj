@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembersOnlyController.cs" />
     <Compile Include="Controllers\OrderManagerController.cs" />
+    <Compile Include="Controllers\PremiumMembershipController.cs" />
     <Compile Include="Controllers\ProductCategoryManagerController.cs" />
     <Compile Include="Controllers\ProductManagerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -281,6 +282,11 @@
     <Content Include="Views\OrderManager\OrderItems.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\MembersOnly\Index.cshtml" />
+    <Content Include="Views\PremiumMembership\Index.cshtml" />
+    <Content Include="Views\PremiumMembership\UpdateNews.cshtml" />
+    <Content Include="Views\PremiumMembership\UpdateDiscounts.cshtml" />
+    <Content Include="Views\OrderManager\MyOrders.cshtml" />
+    <Content Include="Views\PremiumMembership\Advert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

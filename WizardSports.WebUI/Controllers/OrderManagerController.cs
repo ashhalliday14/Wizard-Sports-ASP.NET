@@ -46,5 +46,11 @@ namespace WizardSports.WebUI.Controllers
             orderService.UpdateOrder(order);
             return RedirectToAction("Index");
         }
+
+        public ActionResult MyOrders()
+        {
+            List<Order> orders = orderService.GetOrderList();
+            return View(orders);
+        }
     }
 }

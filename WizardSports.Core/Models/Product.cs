@@ -17,5 +17,6 @@ namespace WizardSports.Core.Models
         public decimal Price { get; set; }
         public string Category { get; set; }
         public string Image { get; set; }
+        public int StockLevel { get; set; }
     }
 }

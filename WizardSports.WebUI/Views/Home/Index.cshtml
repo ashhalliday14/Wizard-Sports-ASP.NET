@@ -32,7 +32,14 @@
         <p>@item.Price</p>
     </div>
     <div class="col-md-12">
-        <a href="@Url.Action("AddToBasket", "Basket", new { Id = item.Id })" class="btn btn-default">Add to Basket</a>
+        @if (item.StockLevel >= 1) //check item is in stock
+        {
+            <a href="@Url.Action("AddToBasket", "Basket", new { Id = item.Id })" class="btn btn-default">Add to Basket</a>
+        }
+        else
+        {
+            <p>Out of Stock</p> //item is out of stock
+        }
     </div>
 </div>
     }
