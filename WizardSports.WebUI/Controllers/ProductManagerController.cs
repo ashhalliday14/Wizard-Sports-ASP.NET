@@ -24,12 +24,14 @@ namespace WizardSports.WebUI.Controllers
         }
 
         //GET: ProductManager
+        //shows the list of all products
         public ActionResult Index()
         {
             List<Product> products = context.Collection().ToList();
-            return View(products);
+            return View(products); //returns view of all products
         }
 
+        //allows admin to create a new product
         public ActionResult Create()
         {
             ProductManagerViewModel viewModel = new ProductManagerViewModel();
@@ -56,10 +58,11 @@ namespace WizardSports.WebUI.Controllers
                 context.Insert(product); //insert into products
                 context.Commit(); //commit the saved changes
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); //return user to products page
             }
         }
 
+        //allows admin to edit products
         public ActionResult Edit(string id)
         {
             Product product = context.Find(id); //finds the product
@@ -77,7 +80,7 @@ namespace WizardSports.WebUI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost] //called when user hits edit
         public ActionResult Edit(Product product, string id, HttpPostedFileBase file)
         {
             Product productToEdit = context.Find(id); //find the product
@@ -99,47 +102,49 @@ namespace WizardSports.WebUI.Controllers
                     file.SaveAs(Server.MapPath("//Content//ProductImages//") + productToEdit.Image);
                 }
 
+                //changes details about products
                 productToEdit.Category = product.Category;
                 productToEdit.Description = product.Description;
                 productToEdit.Name = product.Name;
                 productToEdit.Price = product.Price;
                 productToEdit.StockLevel = product.StockLevel;
 
-                context.Commit();
+                context.Commit(); //commit the changes
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); //return the user
             }
         }
 
+        //allows user to delete a product
         public ActionResult Delete(string id)
         {
-            Product productToDelete = context.Find(id);
+            Product productToDelete = context.Find(id); //finds the product
 
             if(productToDelete == null)
             {
-                return HttpNotFound();
+                return HttpNotFound(); //product could not be found
             }
             else
             {
-                return View(productToDelete);
+                return View(productToDelete); //allows user to delete product
             }
         }
 
-        [HttpPost]
+        [HttpPost] //called when user hits delete
         [ActionName("Delete")]
         public ActionResult ConfirmDelete(string id)
         {
-            Product productToDelete = context.Find(id);
+            Product productToDelete = context.Find(id); //finds the product
 
             if (productToDelete == null)
             {
-               return HttpNotFound();
+               return HttpNotFound(); //product could not be found
             }
             else
             {
-                context.Delete(id);
-                context.Commit();
-                return RedirectToAction("Index");
+                context.Delete(id); //delete the product
+                context.Commit(); //commits the changes
+                return RedirectToAction("Index"); //returns the user
             }
         }
     }

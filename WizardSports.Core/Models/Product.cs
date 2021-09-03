@@ -18,5 +18,7 @@ namespace WizardSports.Core.Models
         public string Category { get; set; }
         public string Image { get; set; }
         public int StockLevel { get; set; }
+        //public decimal DiscountPrice { get; set; } //the discount price for members/premium
+        //public decimal Discount { get; set; } //set discount for product
     }
 }

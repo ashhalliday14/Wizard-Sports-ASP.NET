@@ -11,8 +11,7 @@ namespace WizardSports.WebUI.Controllers
     {
         // GET: PremiumMembership
         //main premium membership page
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Premium")]
+        [Authorize(Roles = "Premium,Admin")]
         public ActionResult Index()
         {
             return View();
